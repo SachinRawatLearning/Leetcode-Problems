@@ -32,6 +32,7 @@
 // 1 <= m + n <= 200
 // -109 <= nums1[i], nums2[j] <= 109
 /**
+/**
  * @param {number[]} nums1
  * @param {number} m
  * @param {number[]} nums2
@@ -39,10 +40,9 @@
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
 var merge = function (nums1, m, nums2, n) {
-  nums.splice();
-  nums2.forEach((ele) => nums1.replace(0, ele));
+  for (let i = m, j = 0; j < nums2.length; j++, i++) {
+    nums1[i] = nums2[j];
+  }
 
   nums1.sort((a, b) => a - b);
-  console.log(nums1);
-  return nums1;
 };

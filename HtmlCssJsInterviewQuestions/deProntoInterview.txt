@@ -1,0 +1,47 @@
+List the features of HTML5, CSS3, Js ES6
+
+
+HTML:
+
+Self Closing Tags
+Provide as many attributes you can on form and input element
+Classes and ids
+Data set
+
+
+CSS:
+
+types of position attribute(fixed, absolute, etc)
+How to makeResponsived web application
+Media queries syntax
+
+
+JS:
+
+Stringify
+Example of stringify
+SetTimeout and setInterval and clearing them
+Ajax
+Get and Post
+How to check an API before integrating
+
+Problem: You are given an array of n integers where the integers are in the range from 0 to n. All numbers are present in the array except one. Find the missing number. 
+Example: Input: [3, 0, 1], 
+Output: 2
+
+const missingNumber = (arr) => {
+    const n = arr.length;
+    let isMissing = false;
+    let missingNumber;
+
+    for(let i =0; i< n; i++){
+        if(!arr.includes(i)){
+            isMissing = true;
+            missingNumber = i;
+            break;
+        }
+    }
+
+    return isMissing? missingNumber : "No Missing Number";
+    
+}

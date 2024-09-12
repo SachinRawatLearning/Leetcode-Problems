@@ -1,0 +1,24 @@
+[
+  {
+    "lastName": "Doe",
+    "firstName": "John",
+    "phone number": 9078723233,
+    "userid": "doehn",
+    "password": "asdsadasf",
+    "degree": {
+      "specialization": "cse",
+      "isCompleted": true
+    }
+  },
+  {
+    "lastName": "Dohn",
+    "firstName": "Sam",
+    "phone number": 9078723233,
+    "userid": "doehn",
+    "password": "asdsadasf",
+    "degree": {
+      "specialization": "cse",
+      "isCompleted": true
+    }
+  }
+]

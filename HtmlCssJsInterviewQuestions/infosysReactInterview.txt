@@ -10,3 +10,44 @@ Implement routing from one page to other
 Implement Custom hooks with implementing a counter
 Reverse a string
 Given an array and a number, calculate and return the two pair of numbers whose sum is equal to the given number(without brute force)
+
+
+Solution: 
+
+import { useState } from "react";
+
+export default function App() {
+  const [pairs, setPairs] = useState([]);
+  const [isCalled, setIsCalled] = useState(false);
+
+  const calculatePair = (arr, n) => {
+    const pairsSet = new Set();
+    const result = [];
+
+    for (let i = 0; i < arr.length; i++) {
+      const complement = n - arr[i];
+
+      if (arr.includes(complement) && !pairsSet.has(`${complement}${arr[i]}`)) {
+        pairsSet.add(`${arr[i]}${complement}`);
+        result.push([arr[i], complement]);
+      }
+    }
+    setPairs(result);
+  };
+
+  if (!isCalled) {
+    calculatePair([9, 5, 3, 4, 6, 8], 9);
+    setIsCalled(true);
+  }
+
+  return (
+    <div>
+      {pairs?.map((pair) => (
+        <span>
+          {pair[0]}, {pair[1]}
+          <br />
+        </span>
+      ))}
+    </div>
+  );
+}

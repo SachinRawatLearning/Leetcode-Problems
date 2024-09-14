@@ -1,0 +1,12 @@
+useReducer
+useMemo
+What is callback
+shallow copy vs deep copy(memory reference)
+
+
+Coding problems:
+
+Implement routing from one page to other
+Implement Custom hooks with implementing a counter
+Reverse a string
+Given an array and a number, calculate and return the two pair of numbers whose sum is equal to the given number(without brute force)

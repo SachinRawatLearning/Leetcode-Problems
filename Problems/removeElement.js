@@ -41,3 +41,21 @@
 // 0 <= nums.length <= 100
 // 0 <= nums[i] <= 50
 // 0 <= val <= 100
+
+/**
+ * @param {number[]} nums
+ * @param {number} val
+ * @return {number}
+ */
+var removeElement = function (nums, val) {
+  let k = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== val) k++;
+    else {
+      let removedNum = nums.splice(i, 1);
+      i--;
+    }
+    console.log(nums);
+  }
+  return k;
+};

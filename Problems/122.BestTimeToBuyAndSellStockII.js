@@ -46,3 +46,6 @@ var maxProfit = function (prices) {
   }
   return profit;
 };
+// Complexity
+// Time complexity: O(n)
+// Space complexity: O(1)

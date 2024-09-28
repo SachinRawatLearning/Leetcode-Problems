@@ -36,11 +36,7 @@
  */
 var reverseWords = function (s) {
   let arr = s.trim().split(/\s+/);
-
-  for (let i = 0; i < Math.floor(arr.length / 2); i++) {
-    let temp = arr[i];
-    arr[i] = arr[arr.length - i - 1];
-    arr[arr.length - i - 1] = temp;
-  }
+  for (let i = 0; i < Math.floor(arr.length / 2); i++)
+    [arr[i], arr[arr.length - i - 1]] = [arr[arr.length - i - 1], arr[i]];
   return arr.join(" ");
 };

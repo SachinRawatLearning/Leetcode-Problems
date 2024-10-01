@@ -37,12 +37,9 @@ var twoSum = function (nums, target) {
   const hashMap = new Map();
 
   for (let i = 0; i < nums.length; i++) {
-    hashMap.set(nums[i], i);
     const complement = target - nums[i];
     if (hashMap.has(complement)) {
-      return [hashMap.get(nums[i]), hashMap.get(complement)];
-    }
+      return [hashMap.get(complement), i];
+    } else hashMap.set(nums[i], i);
   }
-
-  return [left, right];
 };

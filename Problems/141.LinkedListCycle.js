@@ -39,4 +39,14 @@
  * @param {ListNode} head
  * @return {boolean}
  */
-var hasCycle = function (head) {};
+var hasCycle = function (head) {
+  let fast = head;
+  while (fast !== null && fast.next !== null) {
+    head = head.next;
+    fast = fast.next.next;
+
+    if (fast === head) return true;
+  }
+
+  return false;
+};

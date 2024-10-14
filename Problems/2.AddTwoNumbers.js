@@ -33,4 +33,28 @@
  * @param {ListNode} l2
  * @return {ListNode}
  */
-var addTwoNumbers = function (l1, l2) {};
+var addTwoNumbers = function (l1, l2) {
+  let str1 = "";
+  let str2 = "";
+  let head = l1;
+  while (head) {
+    str1 += head.val;
+    head = head.next;
+  }
+
+  head = l2;
+  while (head) {
+    str2 += head.val;
+    head = head.next;
+  }
+  const value = (Number(str1) + Number(str2)).toString();
+  const newNode = new ListNode();
+  for (let i = value.length - 1; i >= 0; i--) {
+    console.log(value[i]);
+    head = new ListNode();
+    head.val = value[i];
+    head = head.next;
+    newNode.next = head;
+  }
+  return newNode;
+};

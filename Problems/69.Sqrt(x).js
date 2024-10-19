@@ -27,3 +27,24 @@ var mySqrt = function (x) {
   while (result * result <= x) result++;
   return result - 1;
 };
+
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var mySqrt = function (x) {
+  let left = 1;
+  let right = Math.floor(x / 2) + 1;
+  let middle;
+
+  while (left <= right) {
+    middle = Math.floor((left + right) / 2);
+    if (middle * middle > x) {
+      right = middle - 1;
+    } else if (middle * middle < x) {
+      left = middle + 1;
+    } else return middle;
+  }
+
+  return right;
+};

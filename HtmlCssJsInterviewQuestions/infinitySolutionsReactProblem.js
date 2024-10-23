@@ -1,65 +1,59 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import "./styles.css";
 
-export default function App() {
+const App = () => {
   const [currentJump, setCurrentJump] = useState(1);
-  const [dummyTextClass, setDummyTextClass] = useState(1);
-  const [dummyData, setDummyData] = useState("Dummy");
-  const intervalRef = useRef(null);
+  const [currentContainer, setCurrentContainer] = useState(1);
+  const icon = "🚔";
+  let timer = useRef(null);
 
   const handleStartStop = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
+    console.log(timer.current);
+    if (timer.current) {
+      clearInterval(timer.current);
+      timer.current = null;
     } else {
-      intervalRef.current = setInterval(() => {
-        setDummyTextClass((prevClass) => {
-          const nextClass = ((prevClass + currentJump - 1) % 5) + 1;
-          return nextClass;
+      timer.current = setInterval(() => {
+        setCurrentContainer((prevContainer) => {
+          const newContainer = ((prevContainer + currentJump - 1) % 5) + 1;
+          console.log(newContainer);
+          return newContainer;
         });
       }, 1000);
     }
   };
 
-  useEffect(() => {
-    return () => clearInterval(intervalRef.current);
-  }, []);
-
   return (
     <div className="App">
-      <div>
-        <textarea
-          className="1"
-          value={dummyTextClass === 1 ? dummyData : ""}
-          readOnly
-        ></textarea>
-        <textarea
-          className="2"
-          value={dummyTextClass === 2 ? dummyData : ""}
-          readOnly
-        ></textarea>
-        <textarea
-          className="3"
-          value={dummyTextClass === 3 ? dummyData : ""}
-          readOnly
-        ></textarea>
-        <textarea
-          className="4"
-          value={dummyTextClass === 4 ? dummyData : ""}
-          readOnly
-        ></textarea>
-        <textarea
-          className="5"
-          value={dummyTextClass === 5 ? dummyData : ""}
-          readOnly
-        ></textarea>
+      <div className="div-Container">
+        <div className="text-Container">
+          {currentContainer === 1 ? icon : ""}
+        </div>
+        <div className="text-Container">
+          {currentContainer === 2 ? icon : ""}
+        </div>
+        <div className="text-Container">
+          {currentContainer === 3 ? icon : ""}
+        </div>
+        <div className="text-Container">
+          {currentContainer === 4 ? icon : ""}
+        </div>
+        <div className="text-Container">
+          {currentContainer === 5 ? icon : ""}
+        </div>
       </div>
-      <button onClick={handleStartStop}>Start/Stop</button>
-      <button onClick={() => setCurrentJump((prev) => (prev % 5) + 1)}>
-        Increase Jump
-      </button>
-      <button onClick={() => setCurrentJump(1)}>Reset Jump</button>
-      <p>Current Jump: {currentJump}</p>
+      <div style={{ textAlign: "center" }}>
+        <button onClick={handleStartStop}>Start/Stop</button>
+        <button
+          onClick={() => setCurrentJump((prevJump) => (prevJump % 5) + 1)}
+        >
+          Increment Jump
+        </button>
+        <button onClick={() => setCurrentJump(1)}>Reset Jump</button>
+        <h4>Current Jump : {currentJump}</h4>
+      </div>
     </div>
   );
-}
+};
+
+export default App;

@@ -18,4 +18,16 @@
  * @param {string[]} words
  * @return {string[]}
  */
-var commonChars = function (words) {};
+var commonChars = function (words) {
+  let result = [...words[0]];
+
+  for (let i = 1; i < words.length; i++) {
+    result = result.filter((char) => {
+      let len = words[i].length;
+      words[i] = words[i].replace(char, "");
+      return len > words[i].length;
+    });
+  }
+
+  return result;
+};

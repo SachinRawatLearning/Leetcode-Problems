@@ -26,26 +26,51 @@
  * @param {number} n
  * @return {number[]}
  */
+
+//Two pointers
+/**
+ * @param {number[]} nums
+ * @param {number} n
+ * @return {number[]}
+ */
 var shuffle = function (nums, n) {
-  let newArr = [];
+  const newArr = [];
   let left = 0;
-  let right = Math.floor(nums.length / 2);
+  let right = n;
 
-  while (left < Math.floor(nums.length / 2) && right < nums.length) {
+  while (left < n && right < n * 2) {
     newArr.push(nums[left]);
     newArr.push(nums[right]);
     left++;
     right++;
   }
 
-  while (left < Math.floor(nums.length / 2)) {
+  while (left < n) {
     newArr.push(nums[left]);
     left++;
   }
 
-  while (right < nums.length) {
+  while (right < n * 2) {
     newArr.push(nums[right]);
     right++;
+  }
+
+  return newArr;
+};
+
+//Another soln:
+
+/**
+ * @param {number[]} nums
+ * @param {number} n
+ * @return {number[]}
+ */
+var shuffle = function (nums, n) {
+  const newArr = [];
+
+  for (let i = 0; i < n; i++) {
+    newArr.push(nums[i]);
+    newArr.push(nums[i + n]);
   }
 
   return newArr;

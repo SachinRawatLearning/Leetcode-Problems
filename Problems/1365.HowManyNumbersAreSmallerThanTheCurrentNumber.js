@@ -29,6 +29,8 @@
  * @param {number[]} nums
  * @return {number[]}
  */
+
+//Brute Force
 var smallerNumbersThanCurrent = function (nums) {
   let res = [];
 
@@ -43,4 +45,14 @@ var smallerNumbersThanCurrent = function (nums) {
   }
 
   return res;
+};
+
+//Sorting and returning array of indices
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var smallerNumbersThanCurrent = function (nums) {
+  const sortedArr = [...nums].sort((a, b) => a - b);
+  return nums.map((ele) => sortedArr.indexOf(ele));
 };

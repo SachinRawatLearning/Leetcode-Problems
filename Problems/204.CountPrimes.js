@@ -30,7 +30,7 @@ var countPrimes = function (n) {
   isPrime[0] = isPrime[1] = false; //0 and 1 are non-prime so set them as false;
   for (let i = 2; i < isPrime.length; i++) {
     if (isPrime[i]) {
-      for (let j = i * i; j < n; j += i) isPrime[j] = false; //Factors of non-prime will be prime so mark them as false
+      for (let j = i * i; j < n; j += i) isPrime[j] = false; //Multiple of prime will be non-prime so mark them as false
     }
   }
   return isPrime.reduce((acc, curr) => curr + acc, 0); //Return the count of true elements in the array

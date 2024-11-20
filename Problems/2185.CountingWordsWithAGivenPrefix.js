@@ -48,3 +48,14 @@ var prefixCount = function (words, pref) {
 
   return count;
 };
+
+//Optimized
+var prefixCount = function (words, pref) {
+  let count = 0;
+
+  words.forEach((word) => {
+    if (pref === word.substring(0, pref.length)) count++;
+  });
+
+  return count;
+};

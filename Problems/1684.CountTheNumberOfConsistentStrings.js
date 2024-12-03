@@ -36,3 +36,4 @@ var countConsistentStrings = function (allowed, words) {
     [...word].every((letter) => allowed.includes(letter))
   ).length;
 };
+  

@@ -35,3 +35,8 @@ var rotateString = function (s, goal) {
   }
   return false;
 };
+//when you concatenate a string with itself (s + s), it contains all possible rotations of the original string.
+var rotateString = function (s, goal) {
+  if (s.length !== goal.length) return false;
+  return (s + s).includes(goal);
+};

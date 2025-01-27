@@ -36,9 +36,15 @@
  * @param {number[]} nums
  * @return {number}
  */
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
 var thirdMax = function (nums) {
   const set = new Set(nums);
   const res = [...set];
-  if (set.size < 3) return Math.max(...res);
+  if (res.length < 3) return Math.max(...res);
+
+  res.sort((a, b) => b - a);
   return res[2];
 };

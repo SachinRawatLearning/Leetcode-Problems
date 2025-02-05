@@ -29,3 +29,25 @@ var isPerfectSquare = function (num) {
   }
   return false;
 };
+
+//Beats 100%
+
+/**
+ * @param {number} num
+ * @return {boolean}
+ */
+var isPerfectSquare = function (num) {
+  let start = 1;
+  let end = num;
+  let middle = Math.floor((start + end) / 2);
+
+  while (start <= end) {
+    middle = Math.floor((start + end) / 2);
+
+    if (middle * middle === num) return true;
+    else if (middle * middle < num) start = middle + 1;
+    else end = middle - 1;
+  }
+
+  return false;
+};

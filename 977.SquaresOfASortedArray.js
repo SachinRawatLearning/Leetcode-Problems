@@ -31,3 +31,27 @@ var sortedSquares = function (nums) {
   res.sort((a, b) => a - b);
   return res;
 };
+
+//Two Pointers
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var sortedSquares = function (nums) {
+  const res = new Array(nums.length);
+  let start = 0,
+    end = nums.length - 1;
+
+  for (let i = nums.length - 1; i >= 0; i--) {
+    if (Math.abs(nums[start]) > Math.abs(nums[end])) {
+      res[i] = nums[start] * nums[start];
+      start++;
+    } else {
+      res[i] = nums[end] * nums[end];
+      end--;
+    }
+  }
+
+  return res;
+};

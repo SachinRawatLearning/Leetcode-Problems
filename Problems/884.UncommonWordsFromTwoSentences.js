@@ -32,15 +32,15 @@
  * @return {string[]}
  */
 var uncommonFromSentences = function (s1, s2) {
-  const str = s1 + " " + s2;
-  const res = str.split(" ");
+  let res = [...s1.split(" "), ...s2.split(" ")];
   const obj = {};
-  const out = [];
 
   for (let i = 0; i < res.length; i++) obj[res[i]] = (obj[res[i]] || 0) + 1;
 
-  for (const [key, value] of Object.entries(obj))
-    if (value === 1) out.push(key);
+  res = [];
 
-  return out;
+  for (const [key, value] of Object.entries(obj))
+    if (value === 1) res.push(key);
+
+  return res;
 };

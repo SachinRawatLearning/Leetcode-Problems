@@ -56,3 +56,24 @@ var checkAlmostEquivalent = function (word1, word2) {
 
   return true;
 };
+
+/**
+ * @param {string} word1
+ * @param {string} word2
+ * @return {boolean}
+ */
+var checkAlmostEquivalent = function (word1, word2) {
+  const freq1 = new Array(26).fill(0);
+  const freq2 = new Array(26).fill(0);
+
+  for (let i = 0; i < word1.length; i++) {
+    freq1[word1.charCodeAt(i) - 97] += 1;
+    freq2[word2.charCodeAt(i) - 97] += 1;
+  }
+
+  for (let i = 0; i < 26; i++) {
+    if (Math.abs(freq2[i] - freq1[i]) > 3) return false;
+  }
+
+  return true;
+};
